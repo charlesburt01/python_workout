@@ -1,5 +1,6 @@
 import os
 import re
+from pprint import pprint
 
 folder_path = "/Users/charlesburt/Library/CloudStorage/GoogleDrive-charlesburt2000@gmail.com/My Drive/Turing College/python_workout/21_longest_word/books"
 file = "43-0.txt"
@@ -61,10 +62,13 @@ def find_longest_word_in_file(file_name: str) -> dict:
 # print(find_longest_word_in_file(file))
 
 
-def find_all_longest_words(dir_name):
+def find_all_longest_words(dir_name: str) -> dict:
+    my_dict = {}
     for file in os.listdir(dir_name):
         if file.endswith(".txt"):
-            print(find_longest_word_in_file(file))
+            d = find_longest_word_in_file(file)
+            my_dict[file] = d[file]
+    return my_dict
 
 
-find_all_longest_words(folder_path)
+pprint(find_all_longest_words(folder_path))
