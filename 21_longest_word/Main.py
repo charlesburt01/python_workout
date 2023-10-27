@@ -43,6 +43,10 @@ def find_longest_word_in_line(file_name: str, line_num: int) -> str:
 
 
 def find_longest_word_in_file(file_name: str) -> dict:
+    """
+    Needs to be updated to read line by line, rather than the whole file at once.
+    Otherwise it will take up lots of memory for large files.
+    """
     for file in os.listdir(folder_path):
         if file == (file_name):
             # print("Found file with filename specified")
